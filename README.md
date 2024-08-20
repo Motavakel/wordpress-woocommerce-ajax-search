@@ -3,7 +3,12 @@
 
  با نصب افزونه می توانید به راحتی با اضافه کردن شورت کد به هر صفحه از قالب سایت تان از این سرچ سریع استفاده کنید:
 
-` echo do_shortcode('[woo_search num="4" description="on" price="on" price="on" cat="on"]');`
+` 
+
+echo do_shortcode('[woo_search num="4" description="on" price="on" price="on" cat="on"]');
+
+
+`
 
 
 در صورتی که نمیخواهید به صورت افزونه نصب کنید و به طور مستقیم به قالب اضافه کنید، کافیست که همه محتوای فایل ها را در فایل functions.php قرار دهید.
