@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 $woo_search_form =
-    '<div class="woo_search_bar woo_bar_el">
+    '<div class="woo_search_bar woo_bar_el d-none d-md-block">
         <form class="woo_search woo_bar_el" id="woo_search" autocomplete="off">
             <span class="loading woo_bar_el" >
                 <svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" class="hds-flight-icon--animation-loading woo_bar_el">
@@ -98,14 +98,15 @@ $css =
 '<style>
 
 form.woo_search {
-    display: flex;
-    flex-wrap: nowrap;
-    border: 1px solid #f0f0f0;
-    border-radius: 10vh;
-    padding: 3px 5px;
-    background-color: white;
-    box-shadow: 0px 6px 9px #00000017;
-  }
+	display: flex;
+	flex-wrap: nowrap;
+	border: 1px solid #f0f0f0;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: white;
+	box-shadow: 0px 6px 9px #00000008;
+	height: 40px;
+}
   
   form.woo_search button#mybtn {
     display: grid;
@@ -133,11 +134,11 @@ div#datafetch {
 	border-radius: 5px;
 }
   
-  div.woo_search_bar {
-    width: 600px !important;
-    max-width: 90% !important;
-    position: relative;
-  }
+div.woo_search_bar {
+ width: clamp(175px, (100% - 175px)*10000, 35vw); 
+  
+	position: relative;
+}
   
   div.search_result ul a li {
     display: flex;
