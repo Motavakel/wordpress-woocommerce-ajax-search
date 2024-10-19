@@ -1,0 +1,12 @@
+.shortcode-display {
+	display: flex;
+	align-items: center;
+}
+.shortcode-display input {
+	width: 40%;
+	text-align: center;
+}
+
+.shortcode-display #copy_shortcode_btn {
+	margin: auto 10px;
+}
