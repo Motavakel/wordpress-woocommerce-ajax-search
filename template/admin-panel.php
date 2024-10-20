@@ -1,10 +1,6 @@
-<?php
-
-?>
-<div class="wrap live-search">
-    <h1><?php esc_html_e('ساخت شورتکد', 'mo-ajax-search'); ?></h1>
+<div class="wrap" id="ajax_search_container">
+    <h1 ><?php esc_html_e('ساخت شورتکد', 'mo-ajax-search'); ?></h1>
     <form method="post">
-
         <table class="form-table">
             <tr>
                 <th scope="row"><label for="post_type_selector"><?php esc_html_e('انتخاب پست تایپ', 'mo-ajax-search'); ?></label></th>
@@ -45,7 +41,7 @@
         </table>
 
         <p class="submit">
-            <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php echo esc_html__('Save', 'lite-shamsi') ?>">
+            <input type="submit" name="ajax_search_submit" id="submit" class="button button-primary" value="<?php echo esc_html__('ایجاد شورت کد', 'lite-shamsi') ?>">
             <?php wp_nonce_field('_wpnonce'); ?>
         </p>
 
@@ -53,12 +49,11 @@
 
     <h2><?php esc_html_e('شورتکد تولید شده:', 'mo-ajax-search'); ?></h2>
 
-    <!--         <input type="text" id="generated_shortcode" class="regular-text" readonly value="">
-        <button type="button" id="copy_shortcode_btn" class="button"></button> -->
-
+    
     <div class="shortcode-display">
-        <input type="text" id="generated_shortcode" class="regular-text" readonly value="<?php echo esc_attr($this->generate_simple_shortcode()); ?>">
-        <button class="button button-secodary" id="copy_shortcode_btn"><?php esc_html_e('کپی شورتکد', 'mo-ajax-search'); ?></button>
-        <span id="success_icon" style="display: none; color: green;">کپی شد</span>
+        <input type="text" id="generated_shortcode" class="regular-text" readonly 
+               value="<?php echo esc_attr($this->generate_simple_shortcode()); ?>">
+        <button class="button button-secodary" id="copy_shortcode_btn"><?php esc_html_e('کپی شورت کد', 'mo-ajax-search'); ?></button>
+        <span id="success_message" style="display: none; color: green;">کپی شد</span>
     </div>
 </div>

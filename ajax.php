@@ -23,7 +23,6 @@ class WooSearch
             $this->search_categories($type, $search_term);
         }
 
-        // انتخاب متد بر اساس نوع جستجو
         if ($type === "product") {
             $this->search_products($image, $search_term, $num, $description, $price, $cat);
         } elseif ($type === "post") {
@@ -31,7 +30,6 @@ class WooSearch
         }
     }
 
-    // متد برای جستجوی دسته‌بندی‌های مرتبط با پست تایپ انتخاب شده
     private function search_categories($type, $search_term)
     {
         $taxonomy = ($type === 'product') ? 'product_cat' : 'category'; // انتخاب تاکسونومی بر اساس نوع جستجو
@@ -63,7 +61,7 @@ class WooSearch
         }
     }
 
-    // جستجوی محصولات
+
     private function search_products($image, $search_term, $num, $description, $price, $cat)
     {
         $the_query = new WP_Query([
@@ -89,7 +87,7 @@ class WooSearch
         $this->display_results($the_query, $description, $image, $price);
     }
 
-    // جستجوی نوشته‌ها
+  
     private function search_posts($search_term, $num, $description, $image)
     {
         $the_query = new WP_Query([
@@ -101,7 +99,7 @@ class WooSearch
         $this->display_results($the_query, $description, $image);
     }
 
-    // نمایش نتایج جستجو
+
     private function display_results($the_query, $description, $image, $price = null)
     {
         if ($the_query->have_posts()) {
