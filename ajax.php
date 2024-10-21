@@ -32,8 +32,7 @@ class WooSearch
 
     private function search_categories($type, $search_term)
     {
-        $taxonomy = ($type === 'product') ? 'product_cat' : 'category'; // انتخاب تاکسونومی بر اساس نوع جستجو
-
+        $taxonomy = ($type === 'product') ? 'product_cat' : 'category'; 
         $categories = get_terms([
             "taxonomy" => $taxonomy,
             "name__like" => $search_term,

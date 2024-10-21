@@ -26,8 +26,8 @@ class Live_Ajax
 
     public function woo_search_admin_scripts()
     {
-        wp_enqueue_script('woo_search-script', ROOTURL . 'main.js', ['jQuery'], '1.0.0', true);
-        wp_enqueue_style('woo_search-style', ROOTURL . 'main.css', [], '1.0.0');
+        wp_enqueue_script('woo_search-script', ROOTURL . 'assets/js/main.js', [], '1.0.0', true);
+        wp_enqueue_style('woo_search-style', ROOTURL . 'assets/css/main.css', [], '1.0.0');
     }
 
     public function woo_search_add_admin_menu()
@@ -46,7 +46,7 @@ class Live_Ajax
         if (isset($_POST['ajax_search_submit'])&&isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], '_wpnonce')) {
             ?>
             <div class="notice notice-success is-dismissible" id="ajax_search_notice">
-                <p><?php _e('شورت کد با موفقیت ایحاد شد', 'mo-ajax-search'); ?></p>
+                <p><?php _e('شورت کد با موفقیت ایجاد شد', 'mo-ajax-search'); ?></p>
             </div>
             <?php
         }
