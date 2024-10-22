@@ -1,22 +1,27 @@
 <div class="wrap" id="ajax_search_container">
-    <h1><?php esc_html_e('ساخت شورتکد', 'mo-ajax-search'); ?></h1>
+    <div class="flex-container">
+        <h2><?php global $title;
+            echo esc_html($title);
+            ?></h2>
+        <h2><?php echo esc_html__('Version : ', 'live-lite-search') . $this::VERSION ?></h2>
+    </div>
     <form method="post">
         <table class="form-table">
             <tr>
                 <th scope="row"><label
-                        for="post_type_selector"><?php esc_html_e('انتخاب پست تایپ', 'mo-ajax-search'); ?></label></th>
+                        for="post_type_selector"><?php esc_html_e('انتخاب پست تایپ', 'live-lite-search'); ?></label></th>
                 <td>
                     <select name="post_type" id="post_type_selector" class="regular-text">
-                        <option value="post"><?php esc_html_e('نوشته‌ها', 'mo-ajax-search'); ?></option>
+                        <option value="post"><?php esc_html_e('نوشته‌ها', 'live-lite-search'); ?></option>
                         <?php if (class_exists('WooCommerce')) : ?>
-                        <option value="product"><?php esc_html_e('محصولات', 'mo-ajax-search'); ?></option>
+                            <option value="product"><?php esc_html_e('محصولات', 'live-lite-search'); ?></option>
                         <?php endif; ?>
                     </select>
                 </td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="num_results"><?php esc_html_e('تعداد نتایج', 'mo-ajax-search'); ?></label>
+                <th scope="row"><label for="num_results"><?php esc_html_e('تعداد نتایج', 'live-lite-search'); ?></label>
                 </th>
                 <td>
                     <div class="number-input">
@@ -30,22 +35,22 @@
 
 
             <tr>
-                <th scope="row"><?php esc_html_e('نمایش تصویر', 'mo-ajax-search'); ?></th>
+                <th scope="row"><?php esc_html_e('نمایش تصویر', 'live-lite-search'); ?></th>
                 <td><input type="checkbox" name="show_image" checked /></td>
             </tr>
 
             <tr>
-                <th scope="row"><?php esc_html_e('نمایش توضیحات', 'mo-ajax-search'); ?></th>
+                <th scope="row"><?php esc_html_e('نمایش توضیحات', 'live-lite-search'); ?></th>
                 <td><input type="checkbox" name="show_description" checked /></td>
             </tr>
 
             <tr>
-                <th scope="row"><?php esc_html_e('نمایش دسته‌بندی', 'mo-ajax-search'); ?></th>
+                <th scope="row"><?php esc_html_e('نمایش دسته‌بندی', 'live-lite-search'); ?></th>
                 <td><input type="checkbox" id="show_category" name="show_category" checked /></td>
             </tr>
 
             <tr id="price_row" style="display:none;">
-                <th scope="row"><?php esc_html_e('نمایش قیمت', 'mo-ajax-search'); ?></th>
+                <th scope="row"><?php esc_html_e('نمایش قیمت', 'live-lite-search'); ?></th>
                 <td><input type="checkbox" id="show_price" name="show_price" /></td>
             </tr>
         </table>
@@ -58,14 +63,14 @@
 
     </form>
 
-    <h2><?php esc_html_e('شورتکد تولید شده:', 'mo-ajax-search'); ?></h2>
+    <h2><?php esc_html_e('شورتکد تولید شده:', 'live-lite-search'); ?></h2>
 
 
     <div class="shortcode-display">
         <input type="text" id="generated_shortcode" class="regular-text" readonly
             value="<?php echo esc_attr($this->generate_simple_shortcode()); ?>">
         <button class="button button-secodary"
-            id="copy_shortcode_btn"><?php esc_html_e('کپی شورت کد', 'mo-ajax-search'); ?></button>
+            id="copy_shortcode_btn"><?php esc_html_e('کپی شورت کد', 'live-lite-search'); ?></button>
         <span id="success_message" style="display: none; color: green;">کپی شد</span>
     </div>
 </div>
