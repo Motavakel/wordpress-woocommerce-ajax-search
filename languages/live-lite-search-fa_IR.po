@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"Project-Id-Version: Live Lite Search\n"
+"POT-Creation-Date: 2024-10-22 15:45+0330\n"
+"PO-Revision-Date: 2024-10-22 15:55+0330\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: live-lite-search.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: fa_IR\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: live-lite-search.php:49
+msgid "Settings"
+msgstr "پیکربندی"
+
+#. Plugin Name of the plugin/theme
+#: live-lite-search.php:65
+msgid "Live Lite Search"
+msgstr "سرچ زنده وردپرس"
+
+#: live-lite-search.php:66
+msgid "Live Search"
+msgstr "سرچ وردپرسی"
+
+#: live-lite-search.php:79
+msgid "Shortcode created successfully"
+msgstr "کد کوتاه با موفقیت ایجاد شد ، می توانید کد اضافه شده را کپی کنید"
+
+#: template/admin-panel.php:6
+msgid "Version : "
+msgstr "ورژن : "
+
+#: template/admin-panel.php:12
+msgid "Select Post type"
+msgstr "انتخاب پست تایپ"
+
+#: template/admin-panel.php:15
+msgid "Blogs"
+msgstr "نوشته ها"
+
+#: template/admin-panel.php:17
+msgid "Products"
+msgstr "محصولات"
+
+#: template/admin-panel.php:24
+msgid "Number of Results"
+msgstr "تعداد نتایج"
+
+#: template/admin-panel.php:37
+msgid "Show Image"
+msgstr "نمایش تصویر"
+
+#: template/admin-panel.php:42
+msgid "Show Description"
+msgstr "نمایش توضیحات"
+
+#: template/admin-panel.php:47
+msgid "Show Category"
+msgstr "نمایش دسته بندی"
+
+#: template/admin-panel.php:52
+msgid "Show Price"
+msgstr "نمایش قیمت"
+
+#: template/admin-panel.php:59
+msgid "Create Shortcode"
+msgstr "ایجاد کد کوتاه"
+
+#: template/admin-panel.php:65
+msgid "Generated Shortcode:"
+msgstr "کد کوتاه ایجاد شده : "
+
+#: template/admin-panel.php:71
+msgid "Copy Shortcode"
+msgstr "کپی کد کوتاه"
+
+#: template/admin-panel.php:72
+msgid "Copied"
+msgstr "کپی شد"
+
+#. Description of the plugin/theme
+msgid "with this plugin you can create live ajax search for any wp post type"
+msgstr "با این افزونه می توانید براحتی برای پست تایپ های نوشته ها و محصولات در صورت نصب ووکامرس سرچ زنده(ای جکسی) ایجاد کنید"
+
+#. Author of the plugin/theme
+msgid "Milad Motavakel"
+msgstr "میلاد متوکل"

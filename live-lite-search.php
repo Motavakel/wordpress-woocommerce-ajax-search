@@ -16,18 +16,11 @@ define('ROOT_PBASE', plugin_basename(__FILE__));
 class Live_Ajax
 {
 
-    private const MINIMUM_PHP_VERSION = '7.4';
     public const VERSION = '1.1.2';
-
 
     public function __construct()
     {
-
-        // Check PHP version
-        if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
-            add_action('admin_notices', array($this, 'admin_notice_minimum_php_version'));
-            return;
-        }
+        require_once ROOT . 'include/ajax.php';
 
         // Action links
         add_filter('plugin_action_links_' . ROOT_PBASE, array($this, 'live_lite_search_plugin_action_links_callback'));
@@ -37,15 +30,23 @@ class Live_Ajax
         add_action('admin_notices', [$this, 'generate_notice']);
 
         add_action('admin_enqueue_scripts', [$this, 'woo_search_admin_scripts']);
-        require_once ROOT . 'ajax.php';
+
+        // Register uninstall hook
+        register_uninstall_hook(__FILE__, array($this, 'live_lite_search_remove_options'));
+
+        // Load plugin 
+        add_action("plugins_loaded", array($this, 'live_lite_search_action_plugin_loaded'));
+    }
+    public function live_lite_search_action_plugin_loaded(): void {
+        load_plugin_textdomain("live-lite-search", false, dirname(plugin_basename(__FILE__)).'/languages');
     }
 
-
-    public function live_lite_search_plugin_action_links_callback($links) {
+    public function live_lite_search_plugin_action_links_callback($links)
+    {
         $settings_link = sprintf(
             '<a href="%1$s">%2$s</a>',
             esc_url(admin_url('admin.php?page=live_lite_search_settings')),
-            esc_html__('Settings', 'live-lite-search') 
+            esc_html__('Settings', 'live-lite-search')
         );
 
         array_unshift($links, $settings_link);
@@ -75,7 +76,7 @@ class Live_Ajax
         if (isset($_POST['ajax_search_submit']) && isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], '_wpnonce')) {
 ?>
             <div class="notice notice-success is-dismissible" id="ajax_search_notice">
-                <p><?php _e('شورت کد با موفقیت ایجاد شد', 'live-lite-search'); ?></p>
+                <p><?php esc_html_e('Shortcode created successfully', 'live-lite-search'); ?></p>
             </div>
 <?php
         }
@@ -99,19 +100,19 @@ class Live_Ajax
             $show_price         = isset($_POST['show_price']) && $post_type === 'product' ? 'on' : 'off';
             $show_category      = isset($_POST['show_category']) ? 'on' : 'off';
 
-            update_option('mo_search_post_type', $post_type);
-            update_option('mo_search_num_results', $num_results);
-            update_option('mo_search_show_image', $show_image);
-            update_option('mo_search_show_description', $show_description);
-            update_option('mo_search_show_price', $show_price);
-            update_option('mo_search_show_category', $show_category);
+            update_option('lls_search_post_type', $post_type);
+            update_option('lls_search_num_results', $num_results);
+            update_option('lls_search_show_image', $show_image);
+            update_option('lls_search_show_description', $show_description);
+            update_option('lls_search_show_price', $show_price);
+            update_option('lls_search_show_category', $show_category);
         } else {
-            $post_type          = get_option('mo_search_post_type', 'post');
-            $num_results        = get_option('mo_search_num_results', 5);
-            $show_image         = get_option('mo_search_show_image', 'on');
-            $show_description   = get_option('mo_search_show_description', 'on');
-            $show_price         = get_option('mo_search_show_price', 'on');
-            $show_category      = get_option('mo_search_show_category', 'on');
+            $post_type          = get_option('lls_search_post_type', 'post');
+            $num_results        = get_option('lls_search_num_results', 5);
+            $show_image         = get_option('lls_search_show_image', 'on');
+            $show_description   = get_option('lls_search_show_description', 'on');
+            $show_price         = get_option('lls_search_show_price', 'on');
+            $show_category      = get_option('lls_search_show_category', 'on');
         }
 
         $shortcode  = '[woo_search';
@@ -152,8 +153,19 @@ class Live_Ajax
         $price          = $atts["price"];
         $cat            = $atts["cat"];
 
-        require_once ROOT . 'view.php';
+        include ROOT . 'include/view.php';
         return "{$woo_search_form}{$java}{$css}";
+    }
+
+
+    public function live_lite_search_remove_options()
+    {
+        delete_option('lls_search_post_type');
+        delete_option('lls_search_num_results');
+        delete_option('lls_search_show_image');
+        delete_option('lls_search_show_description');
+        delete_option('lls_search_show_price');
+        delete_option('lls_search_show_category');
     }
 }
 

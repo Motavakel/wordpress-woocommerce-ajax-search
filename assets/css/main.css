@@ -25,8 +25,19 @@
 .shortcode-display #copy_shortcode_btn {
 	margin: auto 10px;
 }
+
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 20px;
+	background-color: white;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
 /* NOTICE */
-#ajax_search_notice{
+#ajax_search_notice {
 	margin: 20px 2px 2px 20px;
 	transition: 0.8s;
 }
@@ -35,6 +46,7 @@
 	margin: 20px 20px 2px 2px;
 	transition: 0.8s;
 }
+
 /* NUMBER INPUT */
 .number-input {
 	display: inline-flex;
