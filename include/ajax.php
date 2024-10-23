@@ -11,13 +11,13 @@ class WooSearch
 
     public function woo_search()
     {
-        $type = esc_attr($_POST["type"]);
-        $description = esc_attr($_POST["description"]);
-        $price = esc_attr($_POST["price"]);
-        $num = esc_attr($_POST["num"]);
-        $cat = esc_attr($_POST["cat"]);
-        $image = esc_attr($_POST["image"]);
-        $search_term = esc_attr($_POST["s"]);
+        $type           = esc_attr($_POST["type"]);
+        $description    = esc_attr($_POST["description"]);
+        $price          = esc_attr($_POST["price"]);
+        $num            = esc_attr($_POST["num"]);
+        $cat            = esc_attr($_POST["cat"]);
+        $image          = esc_attr($_POST["image"]);
+        $search_term    = esc_attr($_POST["s"]);
 
         if ($cat == "on") {
             $this->search_categories($type, $search_term);
@@ -32,7 +32,7 @@ class WooSearch
 
     private function search_categories($type, $search_term)
     {
-        $taxonomy = ($type === 'product') ? 'product_cat' : 'category'; 
+        $taxonomy = ($type === 'product') ? 'product_cat' : 'category';
         $categories = get_terms([
             "taxonomy" => $taxonomy,
             "name__like" => $search_term,
@@ -83,10 +83,10 @@ class WooSearch
             ]);
         }
 
-        $this->display_results($the_query, $description, $image, $price);
+        $this->display_results($the_query, $description, $image, $price, $num);
     }
 
-  
+
     private function search_posts($search_term, $num, $description, $image)
     {
         $the_query = new WP_Query([
@@ -95,18 +95,18 @@ class WooSearch
             "s" => $search_term,
         ]);
 
-        $this->display_results($the_query, $description, $image);
+        $this->display_results($the_query, $description, $image, $num);
     }
 
 
-    private function display_results($the_query, $description, $image, $price = null)
+    private function display_results($the_query, $description, $image, $price = null, $num = 5)
     {
         if ($the_query->have_posts()) {
             echo '<ul class="woo_bar_el">';
             while ($the_query->have_posts()) {
                 $the_query->the_post();
-                ?>
-                <a href="<?php echo esc_url(get_permalink()); ?>" class="woo_bar_el">
+?>
+                <a href="<?php echo esc_url(get_permalink()); ?>">
                     <?php if ($image == "on"): ?>
                         <img src="<?php the_post_thumbnail_url("thumbnail"); ?>" style="height: 60px;padding: 0px 5px;">
                     <?php endif; ?>
@@ -125,11 +125,21 @@ class WooSearch
                         </span>
                     <?php endif; ?>
                 </a>
-                <?php
+<?php
+
             }
             echo "</ul>";
-            wp_reset_postdata();
+            $number_of_result = $the_query->found_posts;
+            if ($number_of_result > $num) {
+                echo
+                '<button class="show_all woo_bar_el" onclick="goSearch(button.search)">
+                           مشاهده همه محصولات... (' . $number_of_result . ")
+                       </button>";
+            } else {
+                echo "";
+            }
         }
+        wp_reset_postdata();
     }
 }
 

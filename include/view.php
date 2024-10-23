@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 $woo_search_form =
-  '<div class="woo_search_bar woo_bar_el d-none d-md-block">
+  '<div class="woo_search_bar d-none d-md-block">
         <form class="woo_search woo_bar_el" id="woo_search" autocomplete="off">
             <span class="loading woo_bar_el" >
                 <svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" class="hds-flight-icon--animation-loading woo_bar_el">
@@ -41,30 +41,39 @@ $java =
     function searchFetch(e) {
         const searchForm = e.parentElement;	
         searchForm.querySelector(".loading").style.visibility = "visible";
+
         var datafetch = e.parentElement.nextSibling
+
         if (e.value.trim().length > 0){ 
             datafetch.style.display = "block"; 
         } 
         else { 
         datafetch.style.display = "none";
         }
+
         e.nextSibling.value = "لطفا صبر کنید ...";
+
         var formdata  = new FormData(searchForm);
         formdata.append("action", "woo_search");
+
         Ajaxwoo_search(formdata,e); 
     }
 
     async function Ajaxwoo_search(formdata,e) {
+
         const url = "' . admin_url("admin-ajax.php") . '?action=woo_search";
+
         const response = await fetch(url, {
             method: "POST",
             body: formdata,
         });
+
         const data = await response.text();
+
         if (data){	
             e.parentElement.nextSibling.innerHTML = data
-        }else 
-        {
+        }
+        else {
             e.parentElement.nextSibling.innerHTML = 
             `<ul>
                 <a href="#" style="display: block; padding-inline-start: 14px;">
@@ -75,22 +84,22 @@ $java =
         e.parentElement.querySelector(".loading").style.visibility = "hidden";
     }	
 
-    function goSearch(id){document.querySelector(id).click(); console.log(`clicked`) }
-
     document.addEventListener("click", function(e) { 
-    if (document.activeElement.classList.contains("woo_bar_el") == false ){ 
+    if (document.activeElement.classList.contains("woo_bar_el") == false )
+    { 
     [...document.querySelectorAll("div.search_result")].forEach(e => e.style.display = "none")
     } 
     else {
         if  (e.target?.value.trim().length > 0) { 
         e.target.parentElement.nextSibling.style.display = "block"}
         } 
-    }
-    )
+    })
+
 </script>';
 
 $css =
   '<style>
+
 form.woo_search {
   display: flex;
   flex-wrap: nowrap;
@@ -155,9 +164,17 @@ div.search_result ul {
 }
 
 div.search_result ul a {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 5px;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	text-decoration: none;
+	background: antiquewhite;
+	margin: 5px 0;
+}
+div.search_result ul img {
+	background: white;
+	border: 3px solid #c2c2c26b;
+	border-radius: 5px;
 }
 
 div.search_result ul a h5 {
@@ -237,9 +254,6 @@ span.live-price {
   text-align: end;
 }
 
-div#datafetch a {
-  text-decoration: none;
-}
 
 ul.cat_ul.woo_bar_el {
   display: flex;
