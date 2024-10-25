@@ -25,11 +25,11 @@ class Live_Ajax
         // Action links
         add_filter('plugin_action_links_' . ROOT_PBASE, array($this, 'live_lite_search_plugin_action_links_callback'));
 
-        add_action('admin_menu', [$this, 'woo_search_add_admin_menu']);
-        add_shortcode('woo_search', [$this, 'woo_search_func']);
+        add_action('admin_menu', [$this, 'lite_live_search_add_admin_menu']);
+        add_shortcode('lite_live_search', [$this, 'lite_live_search_func']);
         add_action('admin_notices', [$this, 'generate_notice']);
 
-        add_action('admin_enqueue_scripts', [$this, 'woo_search_admin_scripts']);
+        add_action('admin_enqueue_scripts', [$this, 'lite_live_search_admin_scripts']);
 
         // Register uninstall hook
         register_uninstall_hook(__FILE__, array($this, 'live_lite_search_remove_options'));
@@ -53,13 +53,13 @@ class Live_Ajax
         return $links;
     }
 
-    public function woo_search_admin_scripts()
+    public function lite_live_search_admin_scripts()
     {
-        wp_enqueue_script('woo_search-script', ROOTURL . 'assets/js/main.js', [], '1.0.0', true);
-        wp_enqueue_style('woo_search-style', ROOTURL . 'assets/css/main.css', [], '1.0.0');
+        wp_enqueue_script('lite_live_search-script', ROOTURL . 'assets/js/main.js', [], '1.0.0', true);
+        wp_enqueue_style('lite_live_search-style', ROOTURL . 'assets/css/main.css', [], '1.0.0');
     }
 
-    public function woo_search_add_admin_menu()
+    public function lite_live_search_add_admin_menu()
     {
         add_menu_page(
             esc_html__('Live Lite Search', 'live-lite-search'),
@@ -115,7 +115,7 @@ class Live_Ajax
             $show_category      = get_option('lls_search_show_category', 'on');
         }
 
-        $shortcode  = '[woo_search';
+        $shortcode  = '[lite_live_search';
         $shortcode .= " type='" . esc_attr($post_type) . "'";
         $shortcode .= " num='" . esc_attr($num_results) . "'";
         $shortcode .= " image='" . esc_attr($show_image) . "'";
@@ -131,7 +131,7 @@ class Live_Ajax
 
 
 
-    public function woo_search_func($atts)
+    public function lite_live_search_func($atts)
     {
         $atts = shortcode_atts(
             [
@@ -139,11 +139,11 @@ class Live_Ajax
                 "num"           => "4",
                 "image"         => "on",
                 "description"   => "on",
-                "price"         => "on",
+                "price"         => "off",
                 "cat"           => "on"
             ],
             $atts,
-            "woo_search"
+            "lite_live_search"
         );
 
         $type           = $atts["type"];
@@ -154,7 +154,7 @@ class Live_Ajax
         $cat            = $atts["cat"];
 
         include ROOT . 'include/view.php';
-        return "{$woo_search_form}{$java}{$css}";
+        return "{$lite_live_search_form}{$java}{$css}";
     }
 
 

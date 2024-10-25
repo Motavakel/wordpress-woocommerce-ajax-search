@@ -1,9 +1,9 @@
 <?php
 defined('ABSPATH') || exit;
 
-$woo_search_form =
-  '<div class="woo_search_bar d-none d-md-block">
-        <form class="woo_search woo_bar_el" id="woo_search" autocomplete="off">
+$lite_live_search_form =
+  '<div class="lite_live_search_bar d-none d-md-block">
+        <form class="lite_live_search woo_bar_el" id="lite_live_search" autocomplete="off">
             <span class="loading woo_bar_el" >
                 <svg width="25px" height="25px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" class="hds-flight-icon--animation-loading woo_bar_el">
                     <g fill="#676767" fill-rule="evenodd" clip-rule="evenodd">
@@ -15,13 +15,12 @@ $woo_search_form =
 
             <input type="search" name="s" placeholder="جستجو ..." id="keyword" class="input_search woo_bar_el" onkeyup="searchFetch(this)">
             
-            <button id="mybtn" class="search woo_bar_el">
+            <button id="mybtn" class="search woo_bar_el" aria-label="Search">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
 
-            <input  type="hidden"  name="post_type"   value="product">
             <input  type="hidden"  name="type"        value="' . $type . '">
             <input  type="hidden"  name="num"         value="' . $num . '">
             <input  type="hidden"  name="description" value="' . $description . '">
@@ -54,14 +53,14 @@ $java =
         e.nextSibling.value = "لطفا صبر کنید ...";
 
         var formdata  = new FormData(searchForm);
-        formdata.append("action", "woo_search");
+        formdata.append("action", "lite_live_search");
 
-        Ajaxwoo_search(formdata,e); 
+        Ajaxlite_live_search(formdata,e); 
     }
 
-    async function Ajaxwoo_search(formdata,e) {
+    async function Ajaxlite_live_search(formdata,e) {
 
-        const url = "' . admin_url("admin-ajax.php") . '?action=woo_search";
+        const url = "' . admin_url("admin-ajax.php") . '?action=lite_live_search";
 
         const response = await fetch(url, {
             method: "POST",
@@ -100,7 +99,7 @@ $java =
 $css =
   '<style>
 
-form.woo_search {
+form.lite_live_search {
   display: flex;
   flex-wrap: nowrap;
   border: 1px solid #f0f0f0;
@@ -111,7 +110,7 @@ form.woo_search {
   height: 40px;
 }
 
-form.woo_search button#mybtn {
+form.lite_live_search button#mybtn {
   display: grid;
   padding: 4px;
   cursor: pointer;
@@ -120,7 +119,7 @@ form.woo_search button#mybtn {
   border: none;
 }
 
-form.woo_search input#keyword {
+form.lite_live_search input#keyword {
   border: none;
 }
 
@@ -137,7 +136,7 @@ div#datafetch {
   border-radius: 5px;
 }
 
-div.woo_search_bar {
+div.lite_live_search_bar {
   width: clamp(175px, (100% - 175px)*10000, 35vw);
   position: relative;
 }
@@ -165,7 +164,6 @@ div.search_result ul {
 
 div.search_result ul a {
 	display: flex;
-	justify-content: space-between;
 	padding: 5px;
 	text-decoration: none;
 	background: antiquewhite;
@@ -173,8 +171,9 @@ div.search_result ul a {
 }
 div.search_result ul img {
 	background: white;
-	border: 3px solid #c2c2c26b;
+	border: 3px solid #fff;
 	border-radius: 5px;
+  height:85px;
 }
 
 div.search_result ul a h5 {
@@ -211,7 +210,7 @@ div.search_result ul a:hover {
   background-color: #f3f3f3;
 }
 
-.woo_search input#keyword {
+.lite_live_search input#keyword {
   outline: none;
   width: 100%;
   background-color: white;

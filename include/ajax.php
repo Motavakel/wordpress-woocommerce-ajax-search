@@ -5,11 +5,11 @@ class WooSearch
 {
     public function __construct()
     {
-        add_action("wp_ajax_woo_search", [$this, "woo_search"]);
-        add_action("wp_ajax_nopriv_woo_search", [$this, "woo_search"]);
+        add_action("wp_ajax_lite_live_search", [$this, "lite_live_search"]);
+        add_action("wp_ajax_nopriv_lite_live_search", [$this, "lite_live_search"]);
     }
 
-    public function woo_search()
+    public function lite_live_search()
     {
         $type           = esc_attr($_POST["type"]);
         $description    = esc_attr($_POST["description"]);
@@ -24,7 +24,7 @@ class WooSearch
         }
 
         if ($type === "product") {
-            $this->search_products($image, $search_term, $num, $description, $price, $cat);
+            $this->search_products($image, $search_term, $num, $description, $price);
         } elseif ($type === "post") {
             $this->search_posts($search_term, $num, $description, $image);
         }
@@ -33,6 +33,7 @@ class WooSearch
     private function search_categories($type, $search_term)
     {
         $taxonomy = ($type === 'product') ? 'product_cat' : 'category';
+        
         $categories = get_terms([
             "taxonomy" => $taxonomy,
             "name__like" => $search_term,
@@ -61,7 +62,7 @@ class WooSearch
     }
 
 
-    private function search_products($image, $search_term, $num, $description, $price, $cat)
+    private function search_products($image, $search_term, $num, $description, $price)
     {
         $the_query = new WP_Query([
             "posts_per_page" => $num,
@@ -106,9 +107,9 @@ class WooSearch
             while ($the_query->have_posts()) {
                 $the_query->the_post();
 ?>
-                <a href="<?php echo esc_url(get_permalink()); ?>">
+                <a href="<?php echo esc_url(get_permalink()); ?> ">
                     <?php if ($image == "on"): ?>
-                        <img src="<?php the_post_thumbnail_url("thumbnail"); ?>" style="height: 60px;padding: 0px 5px;">
+                        <img src="<?php the_post_thumbnail_url("thumbnail"); ?>">
                     <?php endif; ?>
                     <li><span class="title_r_1">
                             <h5 class="product_name"><?php the_title(); ?></h5>
@@ -119,7 +120,7 @@ class WooSearch
                             </p>
                         <?php endif; ?>
                     </li>
-                    <?php if ($price && $price != "off"): ?>
+                    <?php if ($price == "on"): ?>
                         <span class="live-price">
                             <?= wc_get_product()->get_price_html(); ?>
                         </span>
