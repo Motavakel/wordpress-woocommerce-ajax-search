@@ -18,17 +18,20 @@ class WooSearch
         $cat            = esc_attr($_POST["cat"]);
         $image          = esc_attr($_POST["image"]);
         $search_term    = esc_attr($_POST["s"]);
-
+    
         if ($cat == "on") {
             $this->search_categories($type, $search_term);
         }
-
+    
         if ($type === "product") {
             $this->search_products($image, $search_term, $num, $description, $price);
         } elseif ($type === "post") {
             $this->search_posts($search_term, $num, $description, $image);
         }
+        
+        wp_die();
     }
+    
 
     private function search_categories($type, $search_term)
     {
