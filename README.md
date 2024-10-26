@@ -11,6 +11,7 @@ This plugin enables live and AJAX-based search functionality for WordPress sites
 <p align="justify">
    این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرس فراهم می‌کند و به کاربران امکان می‌دهد نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، افزونه کدهای کوتاهی (Shortcodes) تولید می‌کند که به‌سادگی می‌توان آنها را در هر جای قالب سایت قرار داد. این افزونه با انواع پست‌ها، شامل محصولات ووکامرس و پست‌های وردپرس، سازگار است.
 </p>
+
 ## Features:
 
 * Live and fast search with AJAX functionality
