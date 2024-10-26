@@ -5,11 +5,12 @@
 [![GitHub license](https://img.shields.io/badge/license-GPL%202-gold.svg)](https://opensource.org/licenses/GPL-2.0)
 [![WordPress compatible](https://img.shields.io/badge/WordPress-6.0%2B-brightgreen.svg)](https://wordpress.org/)
 
-
+<p align="justify">
 This plugin enables live and AJAX-based search functionality for WordPress sites, allowing users to quickly view search results without needing to reload the page. The plugin also generates shortcodes that can be easily placed anywhere in the site’s theme. It is compatible with post types for WooCommerce products and WordPress posts.
-
-این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرس فراهم می‌کند و به کاربران امکان می‌دهد نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، افزونه کدهای کوتاهی (Shortcodes) تولید می‌کند که به‌سادگی می‌توان آنها را در هر جای قالب سایت قرار داد. این افزونه با انواع پست‌ها، شامل محصولات ووکامرس و پست‌های وردپرس، سازگار است.
-
+</p>
+<p align="justify">
+   این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرس فراهم می‌کند و به کاربران امکان می‌دهد نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، افزونه کدهای کوتاهی (Shortcodes) تولید می‌کند که به‌سادگی می‌توان آنها را در هر جای قالب سایت قرار داد. این افزونه با انواع پست‌ها، شامل محصولات ووکامرس و پست‌های وردپرس، سازگار است.
+</p>
 ## Features:
 
 * Live and fast search with AJAX functionality
