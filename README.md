@@ -9,7 +9,7 @@
 This plugin enables live and AJAX-based search functionality for WordPress sites, allowing users to quickly view search results without needing to reload the page. The plugin also generates shortcodes that can be easily placed anywhere in the site’s theme. It is compatible with post types for WooCommerce products and WordPress posts.
 </p>
 <p align="justify">
-   این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرسی فراهم می‌کند و به کاربران این امکان را می‌دهد که نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، این افزونه کدهای کوتاهی (Shortcodes) را تولید می‌کند که به‌سادگی می‌توان آنها را در هر جای قالب سایت قرار داد. این افزونه فعلا با انواع پست‌ها، شامل پست های وردپرس  و محصولات ووکامرس ، سازگار است.
+   این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرسی فراهم می‌کند و به کاربران این امکان را می‌دهد که نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، این افزونه کدهای کوتاهی (Shortcodes) را تولید می‌کند که به‌سادگی می‌توان آنها را در هر جای قالب سایت قرار داد. افزونه LiteLiveSearch فعلا با انواع پست‌ها، شامل پست های وردپرس  و محصولات ووکامرس ، سازگار است.
 </p>
 
 ## Features:
