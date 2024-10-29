@@ -13,7 +13,7 @@ $lite_live_search_form =
                 </svg>
             </span>
 
-            <input type="search" name="s" placeholder="جستجو ..." id="keyword" class="input_search woo_bar_el" onkeyup="searchFetch(this)">
+            <input type="search" name="s" placeholder="'.esc_attr__("Search ...","live-lite-search").'" id="keyword" class="input_search woo_bar_el" onkeyup="searchFetch(this)">
             
             <button id="mybtn" class="search woo_bar_el" aria-label="Search">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@ $lite_live_search_form =
 
         </form><div class="search_result woo_bar_el" id="datafetch" style="display: none;">
             <ul>
-                <li>لطفا صبر کنید ...</li>
+                <li>'.esc_html__("Please wait ...","live-lite-search").'</li>
             </ul>
         </div>
     </div>';
@@ -50,7 +50,7 @@ $java =
         datafetch.style.display = "none";
         }
 
-        e.nextSibling.value = "لطفا صبر کنید ...";
+        e.nextSibling.value = "'.esc_html__("Please wait ...","live-lite-search").'";
 
         var formdata  = new FormData(searchForm);
         formdata.append("action", "lite_live_search");
@@ -76,7 +76,7 @@ $java =
             e.parentElement.nextSibling.innerHTML = 
             `<ul>
                 <a href="#" style="display: block; padding-inline-start: 14px;">
-                    <li>متاسفانه نتیجه ایی یافت نشد</li>
+                    <li>'.esc_html__("Unfortunately, the result was not found","live-lite-search").'</li>
                 </a>
             </ul>`
         }
