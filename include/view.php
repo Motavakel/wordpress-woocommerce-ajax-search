@@ -133,8 +133,9 @@ div#datafetch {
   border-radius: 5px;
 }
 div.lite_live_search_bar {
-  width: clamp(175px, (100% - 175px)*10000, 35vw);
-  position: relative;
+	width: clamp(175px, (100% - 175px)*10000, 35vw);
+	position: relative;
+	margin-block: auto;
 }
 div.search_result ul a li {
 	display: flex;
