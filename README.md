@@ -11,7 +11,9 @@
 This plugin enables live and AJAX-based search functionality for WordPress sites, allowing users to quickly view search results without needing to reload the page. The plugin also generates shortcodes that can be easily placed anywhere in the site’s theme. It is compatible with post types for WooCommerce products and WordPress posts.
 </p>
 <p align="justify">
-   این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرسی فراهم می‌کند و به کاربران این امکان را می‌دهد که نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، این افزونه کدهای کوتاهی (Shortcodes) را تولید می‌کند که به‌سادگی می‌توان آنها را در هر جای قالب سایت قرار داد. افزونه LiteLiveSearch فعلا با انواع پست‌ها، شامل پست های وردپرس  و محصولات ووکامرس ، سازگار است.
+   این افزونه قابلیت جستجوی زنده و مبتنی بر AJAX را برای سایت‌های وردپرسی فراهم می‌کند و به کاربران این امکان را می‌دهد که نتایج جستجو را بدون نیاز به بارگذاری مجدد صفحه مشاهده کنند. همچنین، این افزونه با شورت کدهایی (Shortcodes) که تولید می‌کند کار را برای استفاده بسیار ساده کرده است. افزونه LiteLiveSearch فعلا با انواع پست‌ها، شامل پست های وردپرس  و محصولات ووکامرس ، سازگار است.
+
+مطابق تصویر اول بعد از قرار دادن شورت کد ایجاد شده در هرجایی از سایت(اینجا هدر) می توان براحتی از این افزونه استفاد کرد. تصویر دوم هم مربوط میشه به محیط افزونه در وردپرس که با انتخاب گزینه هایی مثل ، انتخاب پست تایپ و... همچنین با کلیک بر روی ایجاد شورت کد ، کد کوتاه رو کپی و در جای دلخواه paste و استفاده نمایید
 </p>
 
 ## Features:
@@ -41,7 +43,7 @@ This plugin enables live and AJAX-based search functionality for WordPress sites
    - Finally, the shortcode for the AJAX search will be generated as follows:
      ```
 
-     [woo_search type='post' num='5' image='on' description='on' cat='on']
+     [lite_live_search  type='post' num='5' image='on' description='on' cat='on']
      
      ```
 
@@ -51,14 +53,14 @@ This plugin enables live and AJAX-based search functionality for WordPress sites
      ```php
 
 
-     echo do_shortcode("[woo_search type='post' num='5' image='on' description='on' cat='on']");
+     echo do_shortcode("[lite_live_search  type='post' num='5' image='on' description='on' cat='on']");
 
      ```
 
 4. **Using the Shortcode in Posts**:
    - To place the shortcode within the content of a post or page, simply enter the shortcode in the text editor or block editor of WordPress. For example:
      ```
-     [woo_search type='post' num='5' image='on' description='on' cat='on']
+     [lite_live_search  type='post' num='5' image='on' description='on' cat='on']
      ```
 
 5. **Customizing Search Display**:
