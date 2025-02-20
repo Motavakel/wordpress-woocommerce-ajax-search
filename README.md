@@ -1,6 +1,9 @@
 # Live Lite Search Plugin
 
+![](4.png)
+<br />
 ![](2.png)
+<br />
 ![](1.png)
 
 ![Plugin Version](https://img.shields.io/badge/version-1.1.2-blue)
