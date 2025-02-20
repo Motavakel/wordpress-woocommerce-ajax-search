@@ -1,5 +1,7 @@
 # Live Lite Search Plugin
 
+![](2.png)
+![](1.png)
 
 ![Plugin Version](https://img.shields.io/badge/version-1.1.2-blue)
 [![GitHub license](https://img.shields.io/badge/license-GPL%202-gold.svg)](https://opensource.org/licenses/GPL-2.0)
