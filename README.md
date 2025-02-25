@@ -35,7 +35,6 @@ This plugin enables live and AJAX-based search functionality for WordPress sites
 2. Go to the WordPress admin area.
 3. Navigate to `Plugins > Add New`.
 4. Upload the downloaded zip file.
-5. Activate the plugin.
 
 ## How to Use the Plugin:
 
